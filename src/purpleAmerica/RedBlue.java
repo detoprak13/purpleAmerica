@@ -129,21 +129,57 @@ public class RedBlue extends GraphicsProgram{
 	public ElectionData searchInArrayList(String name, ArrayList<ElectionData> arr) {
 		ElectionData result = null;
 		String[] splittedName = name.split(" ");
+//		System.out.println(name+"---"+arr.get(regionNo-1).getName());
+//		if(arr.get(regionNo).getName().equalsIgnoreCase(name)) {
+//			regionNo++;
+//		}
+		int foundIndex = binarySearch(arr, name);
 		
-		for(ElectionData temp : arr) {
+		if(foundIndex<0) {
 			String tempName = "";
+			for(int i=0; i<splittedName.length; i++) {				
+				if(i>0) { tempName+=" "; }
+				tempName +=splittedName[i];				
+				foundIndex = binarySearch(arr, tempName);
+				if(foundIndex>=0) {
+					return arr.get(foundIndex);
+				}
+			}
+			for(ElectionData temp : arr) {			
 			if(name.equalsIgnoreCase(temp.getName())) {
 				return temp;
-			}
+			}						
+		}
+		for(ElectionData temp : arr) {
+			tempName = "";
 			for(int i=0; i<splittedName.length; i++) {
 				if(i>0) { tempName+=" "; }
-				tempName +=splittedName[i];		
+				tempName +=splittedName[i];				
 				if(tempName.equalsIgnoreCase(temp.getName())) {
 					return temp;
 				}
-			}			
+			}
 		}
-		
+			
+		}else {
+			return arr.get(foundIndex);
+		}
+//		for(ElectionData temp : arr) {			
+//			if(name.equalsIgnoreCase(temp.getName())) {
+//				return temp;
+//			}						
+//		}
+//		for(ElectionData temp : arr) {
+//			String tempName = "";
+//			for(int i=0; i<splittedName.length; i++) {
+//				if(i>0) { tempName+=" "; }
+//				tempName +=splittedName[i];				
+//				if(tempName.equalsIgnoreCase(temp.getName())) {
+//					return temp;
+//				}
+//			}
+//		}
+//		System.out.println("Sub region not found: " +name + " - "+ region);
 		return result;
 	}
 	public void initLargant() {
@@ -200,4 +236,23 @@ public class RedBlue extends GraphicsProgram{
 		otherClicked.setLabel("Other Votes: "+clickedRegion.getOthers());
 		
 	}
+	public int binarySearch(ArrayList<ElectionData> a, String x) {
+        int low = 0;
+        int high = a.size() - 1;
+        int mid;
+
+        while (low <= high) {
+            mid = (low + high) / 2;
+
+            if ((a.get(mid).getName()).compareTo(x) < 0) {
+                low = mid + 1;
+            } else if ((a.get(mid).getName()).compareTo(x) > 0) {
+                high = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
 }
