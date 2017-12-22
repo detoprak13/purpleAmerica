@@ -1,26 +1,35 @@
-# purpleAmerica
-Historıcal Informatıon
+# PURPLE AMERICA
+
+
+## Assıgnment Description
+
+### Historıcal Informatıon
+
 During coverage of the 2000 presidential election, Tim Russert coined the
 political terms red states and blue states to refer to states that predominantly vote for
 the Republican presidential candidate (red) or the Democratic presidential candidate
 (blue). The news media use red-state blue-state maps, such as the one below, to
 display election results. (Wayne)
 
-Problem Description
+### Problem Description
+
 We are provided with geographic data that describes the boundary of each
 state and country in United States of America and election return data that describes
 the results for each presidential election, by state and county in .txt format. And the
 assignment consists of 3 parts.
 
-White America
+#### White America
+
 Writing a program White.java that takes the name of a region as the command-line
 argument and produces an outline map.
 
-RedBlue America
+#### RedBlue America
+
 Write a program RedBlue.java that takes two command-line arguments (the name of
 the region and the year of the election) and produces a red-state blue-state map.
 
-Purple America
+#### Purple America
+
 Write a program Purple.java that takes two command-line arguments (the name of
 the map and the year of the election) and produces a Purple-America map. Each
 region is colored in a shade of red, green, and blue, according to the proportion of
@@ -28,20 +37,27 @@ votes received by each candidate. If the Republican, Independent, and Democratic
 candidates receive a1, a2, and a3 votes, respectively. Formula to decide coloring of
 each region:
 
-Running Conditions
+
+## Running Conditions
+
 Running conditions are important because later we will discuss about performance
 and optimization solutions.
 
-Machine
-Processor: Intel Core i7-6700HQ @ 2.60 GHZ
-RAM: 16,0 GB
-Graphics Card: Nvidia GeForce GTX 965M 4GB
-Running Environment
-Operating System: Windows 10
-IDE: Eclipse Oxygen
-Runtime Environment: jre- 8 u 151
-External Libraries: ACM
-Solution Description and Analysis
+### Machine
+
+- Processor: Intel Core i7-6700HQ @ 2.60 GHZ
+- RAM: 16,0 GB
+- Graphics Card: Nvidia GeForce GTX 965M 4GB
+
+### Running Environment
+
+- Operating System: Windows 10
+- IDE: Eclipse Oxygen
+- Runtime Environment: jre- 8 u 151
+- External Libraries: ACM
+
+## Solution Description and Analysis
+
 There are 3 main programs: DataReader.java, ElectionData.java and
 Test.java. Test.java is the main controller, runs scanner and waits for an input from
 user. It waits 3 types of different inputs. First type starts with “white” string, and name
@@ -51,14 +67,16 @@ USA and a valid election year. This input runs RedBlue.java program. The third t
 consists “Purple” string, name of a region in USA and a valid election year. This input
 runs RedBlue.java program. If the input is given incorrectly it will produce errors
 accordingly. DataReader takes an argument of file name and reads the appropriate
-file, returns the file data in ArrayList.
+file, returns the file data in ArrayList<String>.
 
-White America
+### White America
+
 Creates an instance of DataReader class and gathers latitude and longitude
 values from the.txt file of the region. Draws the region with ACM GraphicsProgram
 according to their latitude and longitude values.
 
-RedBlue America
+### RedBlue America
+
 Creates an instance of DataReader class and gathers latitude and longitude
 values from the.txt file of the region. Draws every sub region in the region with ACM
 GraphicsProgram according to their latitude and longitude values. For every sub
@@ -66,13 +84,15 @@ region it reads the election results from the according txt file. Stores each su
 region’s information, election results and drawn shape in a Hash Map. This Hasp
 Map’s key is the shape (GPolygon object) and value is ElectionData object. This
 
+
 Hash Map is for GUI interactivity. Then the sub region is colored with the assigned
 color of the winner party.
 
 Whenever user clicks on a sub region, the program shows information about the
 clicked sub region.
 
-Purple America
+### Purple America
+
 Creates an instance of DataReader class and gathers latitude and longitude
 values from the.txt file of the region. Draws every sub region in the region with ACM
 GraphicsProgram according to their latitude and longitude values. For every sub
@@ -85,7 +105,8 @@ each party got.
 Whenever user clicks on a sub region, the program shows information about the
 clicked sub region.
 
-Analysis
+### Analysis
+
 My program uses names of all regions and their coordinates, election result
 and user’s mouse clicks. And outputs Polygons filled with according color and
 information and election result display.
@@ -109,6 +130,7 @@ string and search for it. If found return. If not add the next string and contin
 finds the searched election result. It was working with worst case O(4*n) = O(n).
 Expected running time was O(n). This algorithm runs for every sub region so, real
 expected running time is O(n) * (# of sub regions). Space complexity is O(1).
+
 
 I discovered that all the inputs in both geographic and election result data were
 sorted in alphabetical order. I tried to use this information, but as I said before some
@@ -152,7 +174,9 @@ user in maximum number of elements 3206 according to our data. Possibly I could
 use a AVL tree instead of Hash Map to increase performance. But as I said it is not
 needed.
 
-Conclusion
+
+## Conclusion
+
 This assignment was considerable easy for this course. But this easiness left
 me more time to think about how to improve it. The hardest part was optimizing
 process of finding appropriate election result data in the input list. I three different
@@ -164,3 +188,15 @@ working on. Knowledge I learned in learned in class COMP446 helped me a lot in t
 assignment especially while implementing search and sort algorithms. While
 designing my algorithm I already knew how will it result with what time and space
 complexity.
+
+
+## Running Result Images
+
+Input: White USA-county 1960
+![alt text](purpleAmerica/white USA 1960.PNG)
+
+Input: RedBlue USA-county 1960
+![alt text](purpleAmerica/redblue usa 1960.PNG)
+
+Input: Purple USA-county 1960
+![alt text](purpleAmerica/purple USA 1960.PNG)
