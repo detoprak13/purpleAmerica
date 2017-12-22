@@ -193,10 +193,10 @@ complexity.
 ## Running Result Images
 
 Input: White USA-county 1960
-![alt text](purpleAmerica/white USA 1960.PNG)
+![alt text](https://github.com/detoprak13/purpleAmerica/blob/master/white%20USA%201960.PNG?raw=true)
 
 Input: RedBlue USA-county 1960
-![alt text](purpleAmerica/redblue usa 1960.PNG)
+![alt text](https://github.com/detoprak13/purpleAmerica/blob/master/redblue%20usa%201960.PNG?raw=true)
 
 Input: Purple USA-county 1960
-![alt text](purpleAmerica/purple USA 1960.PNG)
+![alt text](https://github.com/detoprak13/purpleAmerica/blob/master/purple%20USA%201960.PNG?raw=true)
